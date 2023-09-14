@@ -5,12 +5,15 @@ Schema=["Product Name","Issue Date","Price","Brand","Country","Product number"]
 dataStruct = [('Washing Machine',1648770933000,20000,'Samsung','India',1),
       ('Refrigerator',1648770999000,35000,' LG',None,2),
       ('Air Cooler',1648770948000,45000,'Voltas ',None,3)]
-#df = sc.createDataFrame(dataStruct,Schema)
 
 colName1="Issue Date"
 colName="Country"
 ColName2="Brand"
 
+#start Session
+sc=create_session()
+
+#create Data Frame
 df=create_df(sc,dataStruct,Schema)
 
 #Convert the Issue Date with the timestamp format
