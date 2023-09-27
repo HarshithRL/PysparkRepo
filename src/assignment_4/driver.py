@@ -35,5 +35,11 @@ highest_sal = highest_salary(employee_df)
 highest_sal.show()
 
 #6.	Select the highest, lowest, average, and total salary for each department group.
-multi_df = multi_action(employee_df)
-multi_df.show()
+lowest_df = low_salary(employee_df)
+lowest_df .show()
+
+average_df = avg_salary(employee_df)
+average_df.show()
+
+total_df = total_salary(employee_df)
+total_df.show()

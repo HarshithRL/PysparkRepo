@@ -1,8 +1,6 @@
-from pyspark.sql import  Window
+from pyspark.sql import Window
 from pyspark.sql.types import *
 from pyspark.sql.functions import *
-
-
 
 
 def dept_grp(employee_df):
@@ -17,9 +15,9 @@ def row_data(spark):
                              StructField("age", IntegerType(), True),
                              StructField("Job", StringType(), True)
                              ])
-    row = ("Anil", 25, "IT")
-    employee_data = [("Guna", 26, "Admin"),
-                     ("Mani", 27, "HR")]
+    row = ("HARI", 20, "IT")
+    employee_data = [("RAVI", 24, "Admin"),
+                     ("RAGU", 28, "HR")]
 
     added_data = [row] + employee_data
 
@@ -28,27 +26,25 @@ def row_data(spark):
 
 
 def highest_salary(employee_df):
-    highest_salary = Window.partitionBy("department").orderBy(col("salary").desc())
-    row_number_added = employee_df.withColumn("row_number", row_number().over(highest_salary))
-    filtered_df = row_number_added.filter(col("row_number") == 1).drop("row_number")
-    return filtered_df
+    highest_Salary = employee_df.groupBy("department").agg(max("salary").alias("max_salary"))
+    highest_salary_employees = employee_df.join(highest_Salary, on=["department", "salary"], how="inner").select("name")
+    return highest_salary_employees
 
 
-def multi_action(employee_df):#chanche
-    # hightest salary
-    high_salary = Window.partitionBy("department").orderBy(col("salary").desc())
-    row_number_add1 = employee_df.withColumn("row_number", row_number().over(high_salary))
-    high_df = row_number_add1.filter(col("row_number") == 1).drop("row_number")
-
+def low_salary(employee_df):
     # lowest salary
-    low_salary = Window.partitionBy("department").orderBy(col("salary").asc())
-    row_number_add2 = employee_df.withColumn("row_number", row_number().over(low_salary))
-    low_df = row_number_add2.filter(col("row_number") == 1).drop("row_number")
-    low_df.show()
-    # average salary
-    avg_salary = employee_df.groupBy("department").agg(avg("salary"))
-    avg_salary.show()
+    lowest_salary = employee_df.groupBy("department").agg(min("salary"))
+    return lowest_salary
+
+
+def avg_salary(employee_df):
+    # average salary`
+    Avgsalary = employee_df.groupBy("department").agg(avg("salary"))
+    return Avgsalary
     # total salary for each department
+
+
+def total_salary(employee_df):
     tot_salary = employee_df.groupBy("department").agg(sum("salary"))
     tot_salary.show()
-    return high_df
+    return tot_salary

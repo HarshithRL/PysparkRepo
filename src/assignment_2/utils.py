@@ -14,7 +14,7 @@ def add_column(df,colName): #ask#change
 
 #3.	Function to  Change the value of  column.
 def add_value_col(df,colName):
-    df5 = df.withColumn('added_colname', col(colName) * 2)
+    df5 = df.withColumn('added_colnam', col(colName) * 2)
     return df5
 
 #4.Function to 	Change the data types

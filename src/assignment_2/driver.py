@@ -33,7 +33,7 @@ df_selected.show()
 df=add_column(df,'Country')
 df=add_column(df,'department')
 df=add_column(df,'age')
-
+df.show()
 # 3.Change the value of salary column.
 add_value_col(df,'salary').show()
 

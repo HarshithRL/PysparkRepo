@@ -11,6 +11,7 @@ Assignment 1:
 * Defined method to Change the camel case columns to snake case
 * Defined method to Add another column as start_time_ms and convert the values of StartTime to milliseconds
 * Defined method to Combine both the tables based on the Product Number
+* Tested all methods using unittest module
 
 
 Assignment 2:
@@ -24,11 +25,13 @@ Assignment 2:
 * Defined method to Function to Formate the date & time
 * Defined method to Function to Filter the  column
 * Defined method to Function to List out distinct value column
+* Tested all methods using unittest module
 
 Assignment 3:
 
 * Defined method to Function for Pivot the Table
 * Defined method to Function for unPivot the Table
+* Tested all methods using unittest module
 
 Assignment 4:
 
@@ -36,3 +39,4 @@ Assignment 4:
 * Defined method to Create a Dataframe from Row and List of tuples
 * Defined method to Retrieve Employees who earns the highest salary
 * Defined method to Select the highest, lowest, average, and total salary for each department group.
+* Tested all methods using unittest module
