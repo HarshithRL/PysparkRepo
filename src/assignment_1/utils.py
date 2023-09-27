@@ -35,7 +35,7 @@ def fill_na(df,colName):
 #question 2
 
 #Function to rename column
-def rename_column(df,existingName,newNam):
+def rename_column(df,existingName,newNam): #changet
     return df.withColumnRenamed(existingName,newNam)
 
 

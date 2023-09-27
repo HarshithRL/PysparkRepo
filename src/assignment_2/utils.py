@@ -4,11 +4,11 @@ from pyspark.sql.functions import *
 
 
 #1.Function to 	Select columns from Dataframe.
-def select_column(df,colName):
+def select_column(df,colName): ##change
     df_selected=df.select(df[colName])
     return df_selected
 #2.Function to 	Add  column in the dataframe.
-def add_column(df,colName):
+def add_column(df,colName): #ask#change
     df_added_column = df.withColumn(colName, lit(''))
     return df_added_column
 
@@ -39,7 +39,7 @@ def filter_value(df,colName,colName1):
     return result
 
 #8.	Function to List out distinct value column
-def distinct_values(df,colName):
+def distinct_values(df,colName): #Change
     df=df.select(colName).distinct()
     return df
 

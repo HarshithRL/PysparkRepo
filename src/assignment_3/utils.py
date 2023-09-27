@@ -1,8 +1,8 @@
 from pyspark.sql.functions import expr
 
 """Function for Pivot the Table"""
-def pivot(df,colname,colName2,colname3):
-    pivotDF = df.groupBy(colname).pivot(colName2).sum(colname3)
+def pivot(df,colname,colName2,colName3):
+    pivotDF = df.groupBy(colname).pivot(colName2).sum(colName3)
     return pivotDF
 
 

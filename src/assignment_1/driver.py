@@ -59,7 +59,7 @@ df_product_2=create_df(sc,dataStruct_1,schema_1)
 df_renamed=rename_column(df_product_2,'SourceId','source_id')
 
 df_renamed=rename_column(df_renamed,'TransactionNumber','transaction_number')
-
+df_renamed.show()
 #formate from timestamp to unix
 df_format_unix=format_unix(df_renamed,'StartTime')
 df_format_unix.show()
